@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Background image with overlay -->
+  <defs>
+    <linearGradient id="overlay" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(0,0,0,0.7)" />
+      <stop offset="100%" stop-color="rgba(0,0,0,0.4)" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background image - this will be replaced with a real image in production -->
+  <rect width="1200" height="630" fill="#1a1a1a" />
+  
+  <!-- Overlay gradient -->
+  <rect width="1200" height="630" fill="url(#overlay)" />
+  
+  <!-- Logo and seedling icon -->
+  <g transform="translate(600, 200)">
+    <circle cx="0" cy="0" r="60" fill="black" />
+    <circle cx="0" cy="0" r="60" fill="none" stroke="white" stroke-width="4" />
+    <g transform="translate(-30, -30) scale(0.15)">
+      <path fill="#a7f3d0" d="M64 95.1H0c0 123.8 100.3 224 224 224v128c0 8.8 7.2 16 16 16s16-7.2 16-16V320C256 196.3 155.7 95.1 64 95.1zM448 32c-84.25 0-157.4 46.5-195.8 115.3c27.75 30.12 48.25 66.88 59 107.5C424 243.1 512 147.9 512 32H448z"/>
+    </g>
+  </g>
+  
+  <!-- Title -->
+  <text x="600" y="320" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">
+    Flor de Agarthi
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="380" font-family="Arial, sans-serif" font-size="32" fill="#a7f3d0" text-anchor="middle">
+    Finca en Corcovado, Costa Rica
+  </text>
+  
+  <!-- Description -->
+  <text x="600" y="440" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">
+    64 hectáreas en una de las zonas más biodiversas del planeta
+  </text>
+  
+  <!-- Call to action -->
+  <rect x="450" y="480" width="300" height="60" rx="30" fill="#a7f3d0" />
+  <text x="600" y="520" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1a1a1a" text-anchor="middle">
+    Descubre más
+  </text>
+</svg> 

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import AnimatedElement from './components/AnimatedElement';
 import AnimatedText from './components/AnimatedText';
 import StaggerContainer from './components/StaggerContainer';
+import { content } from './content';
 
 function ContactSection({ lang }) {
   const [formData, setFormData] = useState({
@@ -37,7 +38,10 @@ function ContactSection({ lang }) {
     setLoading(true);
     
     // EmailJS service, template, and user IDs
-    // You'll need to replace these with your actual EmailJS credentials
+    // Replace these with your actual EmailJS credentials from your EmailJS dashboard:
+    // - serviceId: found in "Email Services" section (e.g., 'service_abc123')
+    // - templateId: found in "Email Templates" section (e.g., 'template_xyz789')
+    // - userId: found in "Account" > "API Keys" section (Public Key)
     const serviceId = 'YOUR_SERVICE_ID';
     const templateId = 'YOUR_TEMPLATE_ID';
     const userId = 'YOUR_USER_ID';
@@ -49,7 +53,7 @@ function ContactSection({ lang }) {
       from_phone: formData.phone,
       interest: formData.interest,
       message: formData.message,
-      to_name: 'Flor de Agarthi',
+      to_name: 'Flor de Agarthi Corcovado',
       reply_to: formData.email,
       lang: lang
     };
@@ -93,29 +97,29 @@ function ContactSection({ lang }) {
       icon: <FaPhone className="text-green-200" />,
       titleEs: "Teléfono",
       titleEn: "Phone",
-      value: "+506 8888-8888",
-      link: "tel:+50688888888"
+      value: content[lang].contactInfo.phoneFormatted,
+      link: content[lang].contactInfo.phoneUrl
     },
     {
       icon: <FaWhatsapp className="text-green-200" />,
       titleEs: "WhatsApp",
       titleEn: "WhatsApp",
-      value: "+506 8888-8888",
-      link: "https://wa.me/50688888888"
+      value: content[lang].contactInfo.phoneFormatted,
+      link: `https://wa.me/${content[lang].contactInfo.phone.replace(/\+|\s+/g, '')}`
     },
     {
       icon: <FaEnvelope className="text-green-200" />,
       titleEs: "Email",
       titleEn: "Email",
-      value: "info@flordeagarthi.com",
-      link: "mailto:info@flordeagarthi.com"
+      value: content[lang].contactInfo.email,
+      link: content[lang].contactInfo.emailUrl
     },
     {
       icon: <FaMapMarkerAlt className="text-green-200" />,
       titleEs: "Ubicación",
       titleEn: "Location",
-      value: lang === 'es' ? "Los Planes de Drake, Península de Osa, Costa Rica" : "Los Planes de Drake, Osa Peninsula, Costa Rica",
-      link: "https://maps.app.goo.gl/BfLUH4ppqyfrvpN18"
+      value: content[lang].contactInfo.location,
+      link: content[lang].contactInfo.mapUrl
     }
   ];
 
@@ -204,7 +208,7 @@ function ContactSection({ lang }) {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+506 8888 8888" 
+                      placeholder={content[lang].contactInfo.phoneFormatted} 
                       className="w-full p-3 rounded bg-gray-800 border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-transparent"
                     />
                   </div>

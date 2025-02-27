@@ -91,6 +91,17 @@ export const content = {
       title: "¿Interesado en esta propiedad única?",
       description: "Contáctenos hoy para obtener más información o programar una visita.",
       button: "Contactar Ahora"
+    },
+    
+    // Contact information
+    contactInfo: {
+      phone: "+506 8712 8720",
+      phoneFormatted: "+506 8712 8720",
+      phoneUrl: "tel:+50687128720",
+      email: "info@flordeagarthicorcovado.com",
+      emailUrl: "mailto:info@flordeagarthicorcovado.com",
+      location: "Los Planes de Drake, Península de Osa, Costa Rica",
+      mapUrl: "https://maps.app.goo.gl/BfLUH4ppqyfrvpN18"
     }
   },
   
@@ -186,6 +197,17 @@ export const content = {
       title: "Interested in this unique property?",
       description: "Contact us today for more information or to schedule a visit.",
       button: "Contact Now"
+    },
+    
+    // Contact information
+    contactInfo: {
+      phone: "+506 8712 8720",
+      phoneFormatted: "+506 8712 8720",
+      phoneUrl: "tel:+50687128720",
+      email: "info@flordeagarthicorcovado.com",
+      emailUrl: "mailto:info@flordeagarthicorcovado.com",
+      location: "Los Planes de Drake, Osa Peninsula, Costa Rica",
+      mapUrl: "https://maps.app.goo.gl/BfLUH4ppqyfrvpN18"
     }
   }
 }; 

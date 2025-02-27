@@ -9,7 +9,9 @@ const AnimatedText = ({
   duration = 0.5,
   threshold = 0.1,
   once = true,
-  Tag = 'h2'
+  Tag = 'h2',
+  letterSpacing = 'normal',
+  lineHeight = 'normal'
 }) => {
   // Split text into words or characters
   const items = type === 'words' 
@@ -46,7 +48,7 @@ const AnimatedText = ({
   const CustomTag = Tag;
 
   return (
-    <CustomTag className={className}>
+    <CustomTag className={className} style={{ letterSpacing, lineHeight }}>
       <motion.span
         style={{ display: 'inline-block' }}
         initial="hidden"
@@ -57,7 +59,7 @@ const AnimatedText = ({
         {items.map((item, index) => (
           <motion.span
             key={index}
-            style={{ display: 'inline-block' }}
+            style={{ display: 'inline-block', marginRight: type === 'words' ? '0.25em' : '0' }}
             variants={itemVariants}
           >
             {item}

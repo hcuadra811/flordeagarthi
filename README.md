@@ -1,8 +1,8 @@
-# Flor de Agarthi - Property Showcase Website
+# Flor de Agarthi Corcovado - Property Showcase Website
 
 A modern, responsive website for showcasing a unique property in Corcovado, Costa Rica. Built with React, Tailwind CSS, and enhanced with Framer Motion animations.
 
-![Flor de Agarthi](public/resources/images/20231121_090647.jpg)
+![Flor de Agarthi Corcovado](public/resources/images/20231121_090647.jpg)
 
 ## Features
 
@@ -38,8 +38,8 @@ A modern, responsive website for showcasing a unique property in Corcovado, Cost
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/flordeagarthi.git
-   cd flordeagarthi
+   git clone https://github.com/yourusername/flordeagarthicorcovado.git
+   cd flordeagarthicorcovado
    ```
 
 2. Install dependencies:

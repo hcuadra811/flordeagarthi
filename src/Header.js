@@ -56,7 +56,7 @@ function Header({ lang }) {
                 </div>
               </div>
               <div className="ml-3">
-                <div className="text-white font-bold text-xl tracking-wide">Flor de Agarthi</div>
+                <div className="text-white font-bold text-xl tracking-wide">Flor de Agarthi Corcovado</div>
                 <div className="text-green-200 text-xs tracking-wider">
                   {lang === 'es' ? 'FINCA EN CORCOVADO' : 'ESTATE IN CORCOVADO'}
                 </div>

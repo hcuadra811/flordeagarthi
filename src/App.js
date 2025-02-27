@@ -50,10 +50,13 @@ function MainContent({ lang }) {
     setLoading(true);
     
     // EmailJS service, template, and user IDs
-    // You'll need to replace these with your actual EmailJS credentials
-    const serviceId = 'YOUR_SERVICE_ID';
-    const templateId = 'YOUR_TEMPLATE_ID';
-    const userId = 'YOUR_USER_ID';
+    // Replace these with your actual EmailJS credentials from your EmailJS dashboard:
+    // - serviceId: found in "Email Services" section (e.g., 'service_abc123')
+    // - templateId: found in "Email Templates" section (e.g., 'template_xyz789')
+    // - userId: found in "Account" > "API Keys" section (Public Key)
+    const serviceId = 'service_oe4i2ge';
+    const templateId = 'template_8oqnbr6';
+    const userId = 'CRl5y4n6wAOYysbCB';
     
     // Prepare template parameters
     const templateParams = {
@@ -61,7 +64,7 @@ function MainContent({ lang }) {
       from_email: quoteForm.email,
       interest: quoteForm.interest,
       message: `Quick quote request from hero section. Interest: ${quoteForm.interest}`,
-      to_name: 'Flor de Agarthi',
+      to_name: 'Flor de Agarthi Corcovado',
       reply_to: quoteForm.email,
       lang: lang
     };
@@ -113,7 +116,7 @@ function MainContent({ lang }) {
           muted={!audioOn}
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/resources/videos/20231121_090753.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dkca8m9ar/video/upload/v1740594477/20231121_090753_dfclk0.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         {/* Overlay for readability */}
@@ -153,7 +156,7 @@ function MainContent({ lang }) {
                 duration={0.7} 
                 delay={0.2}
               >
-                <div className="inline-block bg-green-200 text-gray-800 px-4 py-1 rounded-full text-sm font-semibold mb-4">
+                <div className="inline-block bg-green-200 text-gray-800 px-4 py-1 rounded-full text-sm font-semibold mb-6">
                   <FaLeaf className="inline mr-2" />
                   {lang === 'es' ? 'PROPIEDAD EXCLUSIVA' : 'EXCLUSIVE PROPERTY'}
                 </div>
@@ -161,9 +164,11 @@ function MainContent({ lang }) {
               
               <AnimatedText 
                 text={content[lang].title}
-                className="text-4xl lg:text-6xl font-bold mb-6 leading-tight"
+                className="text-4xl lg:text-6xl font-bold mb-8 leading-relaxed"
                 delay={0.4}
                 Tag="h1"
+                letterSpacing="0.01em"
+                lineHeight="1.2"
               />
               
               <AnimatedElement 
@@ -171,7 +176,7 @@ function MainContent({ lang }) {
                 duration={0.5} 
                 delay={0.8}
               >
-                <div className="w-20 h-1 bg-green-200 mb-6"></div>
+                <div className="w-20 h-1 bg-green-200 mb-8"></div>
               </AnimatedElement>
               
               <AnimatedElement 
@@ -179,7 +184,7 @@ function MainContent({ lang }) {
                 duration={0.7} 
                 delay={0.9}
               >
-                <p className="text-lg lg:text-xl mb-8 text-gray-200 max-w-xl">
+                <p className="text-lg lg:text-xl mb-10 text-gray-200 max-w-xl leading-relaxed">
                   {content[lang].description}
                 </p>
               </AnimatedElement>
@@ -193,31 +198,31 @@ function MainContent({ lang }) {
                 delay={0.6}
               >
                 <div className="bg-black/80 backdrop-blur-sm p-8 rounded-lg border border-gray-700 shadow-2xl max-w-md mx-auto">
-                  <h3 className="text-2xl font-semibold mb-6 text-center">
+                  <h3 className="text-2xl font-semibold mb-8 text-center">
                     {lang === 'es' ? 'Solicita información' : 'Request Information'}
                   </h3>
                   
                   {quoteStatus.submitted && (
                     <motion.div 
-                      className={`mb-6 p-4 rounded-lg ${quoteStatus.success ? 'bg-green-900/50' : 'bg-red-900/50'}`}
+                      className={`mb-8 p-4 rounded-lg ${quoteStatus.success ? 'bg-green-900/50' : 'bg-red-900/50'}`}
                       initial={{ opacity: 0, y: -20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5 }}
                     >
                       <div className="flex items-center">
                         {quoteStatus.success ? (
-                          <FaCheckCircle className="text-green-300 mr-2 text-xl" />
+                          <FaCheckCircle className="text-green-300 mr-3 text-xl" />
                         ) : (
-                          <FaExclamationCircle className="text-red-300 mr-2 text-xl" />
+                          <FaExclamationCircle className="text-red-300 mr-3 text-xl" />
                         )}
                         <p>{quoteStatus.message}</p>
                       </div>
                     </motion.div>
                   )}
                   
-                  <form onSubmit={handleQuoteSubmit} className="space-y-5">
+                  <form onSubmit={handleQuoteSubmit} className="space-y-6">
                     <div>
-                      <label className="text-sm text-gray-400 block mb-2">
+                      <label className="text-sm text-gray-400 block mb-3">
                         {lang === 'es' ? 'Nombre' : 'Name'}
                       </label>
                       <input 
@@ -227,11 +232,11 @@ function MainContent({ lang }) {
                         onChange={handleQuoteChange}
                         required
                         placeholder={lang === 'es' ? 'Tu nombre completo' : 'Your full name'} 
-                        className="w-full p-3 rounded-lg bg-gray-800/80 border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-transparent text-white"
+                        className="w-full p-4 rounded-lg bg-gray-800/80 border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-transparent text-white"
                       />
                     </div>
                     <div>
-                      <label className="text-sm text-gray-400 block mb-2">
+                      <label className="text-sm text-gray-400 block mb-3">
                         Email
                       </label>
                       <input 
@@ -241,18 +246,18 @@ function MainContent({ lang }) {
                         onChange={handleQuoteChange}
                         required
                         placeholder="email@ejemplo.com" 
-                        className="w-full p-3 rounded-lg bg-gray-800/80 border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-transparent text-white"
+                        className="w-full p-4 rounded-lg bg-gray-800/80 border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-transparent text-white"
                       />
                     </div>
                     <div>
-                      <label className="text-sm text-gray-400 block mb-2">
+                      <label className="text-sm text-gray-400 block mb-3">
                         {lang === 'es' ? 'Interés principal' : 'Main interest'}
                       </label>
                       <select 
                         name="interest"
                         value={quoteForm.interest}
                         onChange={handleQuoteChange}
-                        className="w-full p-3 rounded-lg bg-gray-800/80 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-transparent"
+                        className="w-full p-4 rounded-lg bg-gray-800/80 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-transparent"
                       >
                         <option value={lang === 'es' ? 'Inversión' : 'Investment'}>
                           {lang === 'es' ? 'Inversión' : 'Investment'}
@@ -270,7 +275,7 @@ function MainContent({ lang }) {
                     </div>
                     <motion.button 
                       type="submit" 
-                      className="w-full bg-green-200 hover:bg-green-300 py-4 px-6 rounded-lg text-gray-800 font-bold transition-colors duration-300 flex items-center justify-center"
+                      className="w-full bg-green-200 hover:bg-green-300 py-4 px-6 rounded-lg text-gray-800 font-bold transition-colors duration-300 flex items-center justify-center mt-8"
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.98 }}
                       disabled={loading}
