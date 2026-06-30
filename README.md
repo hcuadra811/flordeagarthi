@@ -124,29 +124,34 @@ To set up email functionality:
 
 ## Deployment
 
-### GitHub Pages (recommended)
+### GitHub Pages + Custom Domain (recommended)
 
-This repo is configured for GitHub Pages.
+The site is live on the custom domain:
 
-**One-time setup (on GitHub):**
-1. Push this code to `https://github.com/hcuadra811/flordeagarthi`
-2. Go to the repository → **Settings** → **Pages**
-3. Under "Build and deployment", set **Source** to **GitHub Actions**
+**https://flordeagarthicorcovado.com**
 
-**After setup:**
-- Every push to `main` will automatically build and deploy via the workflow in `.github/workflows/deploy.yml`
-- Live site: https://hcuadra811.github.io/flordeagarthi
+#### How it works
+- Deployment is handled by GitHub Actions (see `.github/workflows/deploy.yml`).
+- Custom domain `flordeagarthicorcovado.com` is configured in the repo under **Settings → Pages**.
+- DNS uses 4 A records for the apex + a CNAME for `www`.
 
-**Alternative: manual deploy from your machine**
+**Live site:** https://flordeagarthicorcovado.com
+
+#### Re-deploy
+Just push to `main`. The workflow will automatically build and deploy.
+
+You can also manually trigger the workflow from the Actions tab.
+
+#### Alternative (manual)
 ```bash
 npm run deploy
 ```
-(This uses the `gh-pages` package and the `gh-pages` branch.)
+(Uses the `gh-pages` package — not needed if using the Actions workflow.)
 
-**Important technical details:**
-- `homepage` is set in `package.json` so assets load from the `/flordeagarthi/` subpath.
-- `BrowserRouter` uses `basename={process.env.PUBLIC_URL}` so routes (`/es`, `/en`) work correctly under the subpath.
-- A `404.html` copy is included for proper SPA fallback with React Router.
+#### Technical details
+- `homepage` in `package.json` is set to the custom domain so assets load from the root.
+- `BrowserRouter` uses `basename={process.env.PUBLIC_URL}`.
+- During build we generate a `404.html` copy of `index.html` for proper SPA routing (`/es`, `/en`, etc.) on GitHub Pages.
 
 ### Other platforms
 This project can also be deployed to Netlify, Vercel, etc. (they usually auto-detect CRA).
