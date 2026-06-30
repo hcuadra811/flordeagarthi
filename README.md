@@ -124,13 +124,32 @@ To set up email functionality:
 
 ## Deployment
 
-This project can be deployed to any static hosting service:
+### GitHub Pages (recommended)
 
-- Netlify
-- Vercel
-- GitHub Pages
-- AWS S3
-- Firebase Hosting
+This repo is configured for GitHub Pages.
+
+**One-time setup (on GitHub):**
+1. Push this code to `https://github.com/hcuadra811/flordeagarthi`
+2. Go to the repository → **Settings** → **Pages**
+3. Under "Build and deployment", set **Source** to **GitHub Actions**
+
+**After setup:**
+- Every push to `main` will automatically build and deploy via the workflow in `.github/workflows/deploy.yml`
+- Live site: https://hcuadra811.github.io/flordeagarthi
+
+**Alternative: manual deploy from your machine**
+```bash
+npm run deploy
+```
+(This uses the `gh-pages` package and the `gh-pages` branch.)
+
+**Important technical details:**
+- `homepage` is set in `package.json` so assets load from the `/flordeagarthi/` subpath.
+- `BrowserRouter` uses `basename={process.env.PUBLIC_URL}` so routes (`/es`, `/en`) work correctly under the subpath.
+- A `404.html` copy is included for proper SPA fallback with React Router.
+
+### Other platforms
+This project can also be deployed to Netlify, Vercel, etc. (they usually auto-detect CRA).
 
 ## License
 
