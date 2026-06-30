@@ -43,7 +43,7 @@ function Header({ lang }) {
   ];
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black shadow-lg' : 'bg-black bg-opacity-70'}`}>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black shadow-lg' : 'bg-black bg-opacity-70'} overflow-hidden`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -56,7 +56,7 @@ function Header({ lang }) {
                 </div>
               </div>
               <div className="ml-3">
-                <div className="text-white font-bold text-xl tracking-wide">Flor de Agarthi Corcovado</div>
+                <div className="text-white font-bold text-base sm:text-xl tracking-wide truncate">Flor de Agarthi Corcovado</div>
                 <div className="text-green-200 text-xs tracking-wider">
                   {lang === 'es' ? 'FINCA EN CORCOVADO' : 'ESTATE IN CORCOVADO'}
                 </div>

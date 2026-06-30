@@ -42,9 +42,9 @@ function ContactSection({ lang }) {
     // - serviceId: found in "Email Services" section (e.g., 'service_abc123')
     // - templateId: found in "Email Templates" section (e.g., 'template_xyz789')
     // - userId: found in "Account" > "API Keys" section (Public Key)
-    const serviceId = 'YOUR_SERVICE_ID';
-    const templateId = 'YOUR_TEMPLATE_ID';
-    const userId = 'YOUR_USER_ID';
+    const serviceId = 'service_oe4i2ge';
+    const templateId = 'template_8oqnbr6';
+    const userId = 'CRl5y4n6wAOYysbCB';
     
     // Prepare template parameters
     const templateParams = {
@@ -139,9 +139,125 @@ function ContactSection({ lang }) {
           </div>
         </AnimatedElement>
 
+        {/* Mobile-optimized Quick Quote Form - Only visible on mobile */}
+        <div className="lg:hidden mb-12">
+          <AnimatedElement type="fadeIn" delay={0.3}>
+            <div className="bg-gray-700 bg-opacity-50 p-6 rounded-lg shadow-xl max-w-md mx-auto">
+              <h3 className="text-xl font-bold mb-4 border-b border-gray-600 pb-3 text-center">
+                {lang === 'es' ? 'Solicita información rápida' : 'Quick Information Request'}
+              </h3>
+              
+              {status.submitted && (
+                <motion.div 
+                  className={`mb-4 p-3 rounded-lg ${status.success ? 'bg-green-900/50' : 'bg-red-900/50'}`}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <div className="flex items-center">
+                    {status.success ? (
+                      <FaCheckCircle className="text-green-300 mr-2 text-lg" />
+                    ) : (
+                      <FaExclamationCircle className="text-red-300 mr-2 text-lg" />
+                    )}
+                    <p className="text-sm">{status.message}</p>
+                  </div>
+                </motion.div>
+              )}
+              
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="mobile-name" className="block text-xs font-medium text-gray-300 mb-1">
+                    {lang === 'es' ? 'Nombre completo' : 'Full name'}*
+                  </label>
+                  <input 
+                    type="text" 
+                    id="mobile-name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    placeholder={lang === 'es' ? 'Tu nombre' : 'Your name'} 
+                    className="w-full p-3 rounded bg-gray-800 border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-transparent text-sm"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="mobile-email" className="block text-xs font-medium text-gray-300 mb-1">
+                    Email*
+                  </label>
+                  <input 
+                    type="email" 
+                    id="mobile-email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    placeholder="email@ejemplo.com" 
+                    className="w-full p-3 rounded bg-gray-800 border border-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-transparent text-sm"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="mobile-interest" className="block text-xs font-medium text-gray-300 mb-1">
+                    {lang === 'es' ? 'Interés principal' : 'Main interest'}
+                  </label>
+                  <select 
+                    id="mobile-interest"
+                    name="interest"
+                    value={formData.interest}
+                    onChange={handleChange}
+                    className="w-full p-3 rounded bg-gray-800 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-transparent text-sm"
+                  >
+                    <option value={lang === 'es' ? 'Inversión' : 'Investment'}>
+                      {lang === 'es' ? 'Inversión' : 'Investment'}
+                    </option>
+                    <option value={lang === 'es' ? 'Conservación' : 'Conservation'}>
+                      {lang === 'es' ? 'Conservación' : 'Conservation'}
+                    </option>
+                    <option value={lang === 'es' ? 'Ecoturismo' : 'Ecotourism'}>
+                      {lang === 'es' ? 'Ecoturismo' : 'Ecotourism'}
+                    </option>
+                    <option value={lang === 'es' ? 'Agricultura' : 'Agriculture'}>
+                      {lang === 'es' ? 'Agricultura' : 'Agriculture'}
+                    </option>
+                    <option value={lang === 'es' ? 'Otro' : 'Other'}>
+                      {lang === 'es' ? 'Otro' : 'Other'}
+                    </option>
+                  </select>
+                </div>
+                
+                <motion.button 
+                  type="submit" 
+                  className="w-full bg-green-200 hover:bg-green-300 py-3 px-6 rounded-lg text-gray-800 font-bold transition-colors duration-300 flex items-center justify-center mt-4"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <>
+                      <motion.div 
+                        className="w-4 h-4 border-2 border-gray-800 border-t-transparent rounded-full mr-2"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                      />
+                      {lang === 'es' ? 'Enviando...' : 'Sending...'}
+                    </>
+                  ) : (
+                    <>
+                      <FaEnvelope className="mr-2" />
+                      {lang === 'es' ? 'Enviar' : 'Send'}
+                    </>
+                  )}
+                </motion.button>
+              </form>
+            </div>
+          </AnimatedElement>
+        </div>
+
         <div className="flex flex-col lg:flex-row gap-10">
-          {/* Contact Form */}
-          <AnimatedElement type="slideInLeft" delay={0.4} className="lg:w-1/2">
+          {/* Contact Form - Hidden on mobile since we have the quick form above */}
+          <AnimatedElement type="slideInLeft" delay={0.4} className="lg:w-1/2 hidden lg:block">
             <div className="bg-gray-700 bg-opacity-50 p-8 rounded-lg shadow-xl">
               <h3 className="text-2xl font-bold mb-6 border-b border-gray-600 pb-3">
                 {lang === 'es' ? 'Envíanos un mensaje' : 'Send us a message'}
@@ -296,8 +412,8 @@ function ContactSection({ lang }) {
           <div className="lg:w-1/2 space-y-8">
             {/* Contact Information */}
             <AnimatedElement type="slideInRight" delay={0.5}>
-              <div className="bg-gray-700 bg-opacity-50 p-8 rounded-lg shadow-xl mb-8">
-                <h3 className="text-2xl font-bold mb-6 border-b border-gray-600 pb-3">
+              <div className="bg-gray-700 bg-opacity-50 p-6 lg:p-8 rounded-lg shadow-xl mb-8">
+                <h3 className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6 border-b border-gray-600 pb-3">
                   {lang === 'es' ? 'Información de contacto' : 'Contact information'}
                 </h3>
                 <StaggerContainer delay={0.2} staggerDelay={0.1}>
@@ -305,8 +421,8 @@ function ContactSection({ lang }) {
                     {contactInfo.map((info, index) => (
                       <motion.a 
                         key={index} 
-                        href={info.link} 
-                        target="_blank" 
+                        href={info.link}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center p-3 hover:bg-gray-600 rounded-lg transition-colors duration-300"
                         whileHover={{ x: 5, backgroundColor: 'rgba(75, 85, 99, 0.5)' }}
@@ -318,7 +434,7 @@ function ContactSection({ lang }) {
                           <p className="text-sm text-gray-400">
                             {lang === 'es' ? info.titleEs : info.titleEn}
                           </p>
-                          <p className="font-medium">{info.value}</p>
+                          <p className="font-medium text-sm lg:text-base">{info.value}</p>
                         </div>
                       </motion.a>
                     ))}
@@ -327,10 +443,10 @@ function ContactSection({ lang }) {
               </div>
             </AnimatedElement>
             
-            {/* Map */}
-            <AnimatedElement type="slideUp" delay={0.7}>
-              <div className="bg-gray-700 bg-opacity-50 p-8 rounded-lg shadow-xl">
-                <h3 className="text-2xl font-bold mb-6 border-b border-gray-600 pb-3">
+            {/* Map - Hidden on small screens to save space */}
+            <AnimatedElement type="slideUp" delay={0.7} className="hidden sm:block">
+              <div className="bg-gray-700 bg-opacity-50 p-6 lg:p-8 rounded-lg shadow-xl">
+                <h3 className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6 border-b border-gray-600 pb-3">
                   {lang === 'es' ? 'Ubicación' : 'Location'}
                 </h3>
                 <motion.div 

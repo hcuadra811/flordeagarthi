@@ -1,7 +1,7 @@
 export const content = {
   es: {
     // Hero section
-    title: "Finca de 64 hectáreas en Corcovado, Costa Rica",
+    title: "Finca selvática de 64 hectáreas en Corcovado, Costa Rica",
     description: "Una oportunidad única para adquirir un paraíso natural en una de las zonas más biodiversas del planeta.",
     cta: "Descubrir Propiedad",
     

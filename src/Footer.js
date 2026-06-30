@@ -21,7 +21,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-gray-900 text-gray-300 overflow-hidden">
       {/* Main Footer */}
       <div className="pt-12 pb-8 px-4">
         <div className="max-w-6xl mx-auto">

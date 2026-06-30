@@ -11,29 +11,29 @@ function GallerySection({ lang }) {
   // Gallery images with varying heights for masonry effect
   const galleryImages = [
     {
-      url: '/resources/images/20231121_083611.jpg',
+      url: 'https://res.cloudinary.com/dkca8m9ar/image/upload/v1740594507/20231121_083611_xjaqga.jpg',
       alt: lang === 'es' ? 'Vista de la finca 1' : 'Property view 1',
       height: 'h-64 md:h-80'
     },
     {
-      url: '/resources/images/20231121_083640.jpg',
+      url: 'https://res.cloudinary.com/dkca8m9ar/image/upload/v1740594510/20231121_083640_dgswuf.jpg',
       alt: lang === 'es' ? 'Vista de la finca 2' : 'Property view 2',
       height: 'h-96'
     },
     {
-      url: '/resources/images/20231121_083647.jpg',
+      url: 'https://res.cloudinary.com/dkca8m9ar/image/upload/v1740594508/20231121_083647_g5bpnb.jpg',
       alt: lang === 'es' ? 'Vista de la finca 3' : 'Property view 3',
       height: 'h-72'
     },
     {
-      url: '/resources/images/20231121_083649.jpg',
+      url: 'https://res.cloudinary.com/dkca8m9ar/image/upload/v1740594504/20231121_083649_mk8dwy.jpg',
       alt: lang === 'es' ? 'Vista de la finca 4' : 'Property view 4',
       height: 'h-80'
     },
     {
-      url: '/resources/images/20231121_090647.jpg',
+      url: 'https://res.cloudinary.com/dkca8m9ar/image/upload/v1740594506/20231121_090647_iuqajk.jpg',
       alt: lang === 'es' ? 'Vista de la finca 6' : 'Property view 6',
-      height: 'h-96 md:h-108'
+      height: 'h-96 md:h-[28rem]'
     }
   ];
 
@@ -109,7 +109,7 @@ function GallerySection({ lang }) {
                   <img 
                     src={image.url} 
                     alt={image.alt}
-                    className="w-full object-cover"
+                    className={`w-full object-cover ${image.height}`}
                     style={{ minHeight: '200px' }}
                   />
                   <motion.div 

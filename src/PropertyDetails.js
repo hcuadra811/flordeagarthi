@@ -24,8 +24,8 @@ function PropertyDetails({ lang }) {
       icon: <FaMountain className="text-gray-500 text-2xl" />, 
       titleEs: "Terreno Diverso", 
       titleEn: "Diverse Terrain",
-      descEs: "10 hectáreas de tacotal aptas para agricultura y construcción",
-      descEn: "10 hectares suitable for agriculture and construction"
+      descEs: "10 hectareas de tacotal en terreno plano adyacente a la carretera pública, y 54 hectáreas de bosque de montaña con senderos y nacientes de agua",
+      descEn: "10 hectares of secondary forest on flat terrain adjacent to the public road, and 54 hectares of mountain forest with trails and water springs"
     },
     { 
       icon: <FaPaw className="text-green-200 text-2xl" />, 
@@ -51,7 +51,7 @@ function PropertyDetails({ lang }) {
   ];
 
   return (
-    <section id="details" className="py-16 px-4 bg-gradient-to-b from-gray-50 to-gray-100 text-gray-800">
+    <section id="details" className="py-16 px-4 bg-gradient-to-b from-gray-50 to-gray-100 text-gray-800 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold mb-8 text-center">
           {lang === 'es' ? 'Detalles de la Finca' : 'Property Details'}
@@ -67,7 +67,7 @@ function PropertyDetails({ lang }) {
               ? 'La finca está conformada en su mayoría por terreno de montaña destinado a la conservación y cuido de la naturaleza. Además, cuenta con un sector de tacotal de 10 hectáreas apto para agricultura y construcción de infraestructura, y es atravesada por 3 riachuelos. El resto de la finca es un ambiente natural intacto, con un sendero que la recorre y una cabaña muy modesta.'
               : 'The estate is mainly a mountainous terrain dedicated to nature conservation, including a 10-hectare area suitable for agriculture and infrastructure development, and is crossed by 3 streams. The remainder of the property is an intact natural environment, featuring a trail and a modest cabin.'}
           </p>
-          <p className="mb-4 text-lg">
+          <p className="mb-4 text-lg bg-blue-200 p-4 rounded-lg text-gray-800">
             {lang === 'es'
               ? 'La finca es colindante con uno de los linderos del Parque Nacional Corcovado, con la margen derecha del Río Claro y tres fincas vecinas. La colindancia muestra un lecho rocoso que forma cascadas y pozas de gran belleza escénica.'
               : 'It is adjacent to one of the boundaries of Corcovado National Park, along the right bank of the Claro River and three neighboring estates. The riverbank features rocky beds that create a series of breathtaking waterfalls and pools.'}

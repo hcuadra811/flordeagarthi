@@ -56,7 +56,7 @@ function AboutSection({ lang }) {
               <div className="relative">
                 <ParallaxSection direction="up" speed={0.1}>
                   <img 
-                    src="/resources/images/20231121_090647.jpg" 
+                    src="https://res.cloudinary.com/dkca8m9ar/image/upload/v1740594506/20231121_090647_iuqajk.jpg" 
                     alt={lang === 'es' ? "Vista de la finca" : "Property view"} 
                     className="rounded-lg shadow-xl w-full h-[400px] object-cover"
                   />

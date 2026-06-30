@@ -102,12 +102,12 @@ function MainContent({ lang }) {
   };
 
   return (
-    <div className="min-h-screen relative font-sans text-white">
+    <div className="min-h-screen relative font-sans text-white overflow-x-hidden">
       {/* Header with navigation and language switcher */}
       <Header lang={lang} />
       
       {/* Hero section with video background */}
-      <div className="relative h-screen">
+      <div className="relative h-screen overflow-hidden">
         <video
           ref={videoRef}
           autoPlay
@@ -148,7 +148,7 @@ function MainContent({ lang }) {
         
         {/* Hero Content with asymmetric layout */}
         <div className="relative z-10 h-full flex items-center">
-          <div className="container mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center lg:items-start">
+          <div className="container mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center">
             {/* Left side - Title and description */}
             <div className="lg:w-1/2 text-left lg:pt-32 mb-8 lg:mb-0">
               <AnimatedElement 
@@ -164,7 +164,7 @@ function MainContent({ lang }) {
               
               <AnimatedText 
                 text={content[lang].title}
-                className="text-4xl lg:text-6xl font-bold mb-8 leading-relaxed"
+                className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight sm:leading-relaxed break-words"
                 delay={0.4}
                 Tag="h1"
                 letterSpacing="0.01em"
@@ -188,10 +188,29 @@ function MainContent({ lang }) {
                   {content[lang].description}
                 </p>
               </AnimatedElement>
+
+              {/* Mobile-only CTA button that scrolls to the contact form */}
+              <AnimatedElement 
+                type="slideUp" 
+                duration={0.7} 
+                delay={1.0}
+                className="lg:hidden"
+              >
+                <motion.a 
+                  href="#contact"
+                  className="inline-flex items-center bg-green-200 hover:bg-green-300 py-3 px-6 rounded-lg text-gray-800 font-bold transition-colors duration-300"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <FaEnvelope className="mr-2" />
+                  {lang === 'es' ? 'Solicitar información' : 'Request Information'}
+                  <FaArrowRight className="ml-2" />
+                </motion.a>
+              </AnimatedElement>
             </div>
             
-            {/* Right side - Quick Quote Form */}
-            <div className="lg:w-1/2 lg:pl-12">
+            {/* Right side - Quick Quote Form - Hidden on mobile */}
+            <div className="hidden lg:block lg:w-1/2 lg:pl-12">
               <AnimatedElement 
                 type="slideInRight" 
                 duration={0.8} 
@@ -332,7 +351,7 @@ function LanguageRoute() {
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         {/* Default route redirects to Spanish */}
         <Route path="/" element={<Navigate to="/es" replace />} />

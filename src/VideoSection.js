@@ -5,21 +5,21 @@ function VideoSection({ lang }) {
   // Video data with titles and descriptions
   const videos = [
     {
-      url: '/resources/videos/20231121_090655.mp4',
+      url: 'https://res.cloudinary.com/dkca8m9ar/video/upload/v1740594499/20231121_090655_fnxppv.mp4',
       titleEs: 'Recorrido por el sendero principal',
       titleEn: 'Main trail tour',
       descEs: 'Vista del sendero principal que atraviesa la propiedad',
       descEn: 'View of the main trail that crosses the property'
     },
     {
-      url: '/resources/videos/20231121_090753.mp4',
+      url: 'https://res.cloudinary.com/dkca8m9ar/video/upload/v1740594477/20231121_090753_dfclk0.mp4',
       titleEs: 'Cascadas del Río Claro',
       titleEn: 'Claro River waterfalls',
       descEs: 'Hermosas cascadas formadas en el lecho rocoso del río',
       descEn: 'Beautiful waterfalls formed in the rocky riverbed'
     },
     {
-      url: '/resources/videos/20231121_124310.mp4',
+      url: 'https://res.cloudinary.com/dkca8m9ar/video/upload/v1740594486/20231121_124310_th9jk8.mp4',
       titleEs: 'Biodiversidad de la finca',
       titleEn: 'Property biodiversity',
       descEs: 'Muestra de la rica flora y fauna presente en la propiedad',
@@ -92,7 +92,7 @@ function VideoSection({ lang }) {
   }, [videoRef]);
 
   return (
-    <section id="videos" className="py-16 px-4 bg-gray-100 text-gray-800">
+    <section id="videos" className="py-16 px-4 bg-gray-100 text-gray-800 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center">
           {lang === 'es' ? 'Videos de la Finca' : 'Property Videos'}
